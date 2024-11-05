@@ -2,24 +2,27 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale" />
-  <title>Product App</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Shopping List App</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
-  <div class="nav-bar"></div>
-
-  <div id="app">
-    <div class="cart">
-      <p>Cart({{ cart.length }})</p>
-    </div>
-
-    <product :premium="premium" @add-to-cart="updateCart"></product>
-
+  <div id="shopping-list">
+    <h1>{{header}}</h1>
+    <input v-model="header">
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-  <script src="main.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    Vue.createApp({
+      data(){
+        return {
+          header: "Vue is ready to party!"
+        }
+      }
+    })
+    .mount('#shopping-list')
+  </script>
 </body>
 
 </html>
