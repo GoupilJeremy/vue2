@@ -22,6 +22,7 @@
         type="text" 
         placeholder="Add an item"
       >
+      <p class="counter">{{characterCount}}/200</p>
 
       <label><input v-model="newItemHighPriority" type="checkbox">Hig priority</label>
 
@@ -35,7 +36,7 @@
     <ul>
       <li v-for="item in items" @click="togglePurchased(item)" :key="item.id" :class="{strikeout: item.purchased, priority: item.highPriority}" class="static-class">{{item.label}}</li>
 
-      <li v-for="item in items" @click="togglePurchased(item)" :key="item.id" :class="[{strikeout: item.purchased}, {priority: item.highPriority}, 'static-class']">{{item.label}}</li>
+      <li v-for="item in reversedItems" @click="togglePurchased(item)" :key="item.id" :class="[{strikeout: item.purchased}, {priority: item.highPriority}, 'static-class']">{{item.label}}</li>
     </ul>
   </div>
   <script src="https://unpkg.com/vue@3"></script>
@@ -52,6 +53,14 @@
             {id: 2, label:"2 board games", purchased: false, highPriority: false},
             {id: 3, label:"20 cups", purchased: true, highPriority: false},
       ]
+        }
+      },
+      computed:{
+        characterCount(){
+          return this.newItem.length
+        },
+        reversedItems(){
+          return [...this.items.reverse()]
         }
       },
       methods:{
