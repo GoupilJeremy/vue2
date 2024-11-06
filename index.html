@@ -25,7 +25,11 @@
 
       <label><input v-model="newItemHighPriority" type="checkbox">Hig priority</label>
 
-      <button v-on:click="saveItem" class="btn btn-primary">Save Item</button>
+      <button 
+        v-bind:disabled="newItem.length < 5" 
+        v-on:click="saveItem" 
+        class="btn btn-primary"
+      >Save Item</button>
     </div>
    <p v-if="items.length === 0">Nice job! You've bought all your items!</p>
     <ul>
