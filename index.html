@@ -9,15 +9,37 @@
 
 <body>
   <div id="shopping-list">
-    <h1>{{header.toLocaleUpperCase()}}</h1>
-    <input v-model="header">
+    <h1>{{header || 'Welcome'}}</h1>
+
+    <input v-model="newItem" type="text" placeholder="Add an item">
+    <label><input v-model="newItemPriority" type="radio" value="low">Low</label>
+    <label><input v-model="newItemPriority" type="radio" value="high">High</label>
+    
+    <br />
+
+    <label><input v-model="iceCreamFlavor" type="checkbox" value="vanilla">Vanilla</label>
+    <label><input v-model="iceCreamFlavor" type="checkbox" value="chocolate">Chocolate</label>
+    <label><input v-model="iceCreamFlavor" type="checkbox" value="cherry">Cherry</label>
+
+    <br />
+    <ul>
+      <li v-for="item in items" :key="item.id">{{item.label}}</li>
+    </ul>
   </div>
   <script src="https://unpkg.com/vue@3"></script>
   <script>
     Vue.createApp({
       data(){
         return {
-          header: "Shopping list app"
+          header: "Shopping list app",
+          newItem: '',
+          newItemPriority: 'low',
+          iceCreamFlavor: [],
+          items:[
+            {id: 1, label:"10 party hats"},
+            {id: 2, label:"2 board games"},
+            {id: 3, label:"20 cups"},
+      ]
         }
       }
     })
