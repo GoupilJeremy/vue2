@@ -9,7 +9,7 @@
 
 <body>
   <div id="shopping-list">
-    <h1>{{header}}</h1>
+    <h1>{{header.toLocaleUpperCase()}}</h1>
     <input v-model="header">
   </div>
   <script src="https://unpkg.com/vue@3"></script>
@@ -17,7 +17,7 @@
     Vue.createApp({
       data(){
         return {
-          header: "Vue is ready to party!"
+          header: "Shopping list app"
         }
       }
     })
