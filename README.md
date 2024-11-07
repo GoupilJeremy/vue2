@@ -1,7 +1,6 @@
 # Vue apprentissage
 
-Learn Vue2 from "Vue Mastery" https://www.vuemastery.com
+Learn Vue from "Vue Mastery" https://www.vuemastery.com
 
 you can see the result here: https://goupiljeremy.github.io/vue2
 
-Vue.js 3
